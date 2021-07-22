@@ -1,5 +1,8 @@
 package Java_Basic_Practise1;
 
+import java.sql.Array;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -64,5 +67,36 @@ public class Main {
         System.out.println("You're on " + Math.round(mathInt*100) + "% lucky today");
         double tang = Math.tan(0.785398);
         System.out.println(tang);
+
+        //5. Create few String variables and try to perform following
+        //transformations and print the results:
+        String stringOne = "What we will do with the drunken sailor early in the morning?";
+        String stringTwo = "Put him in the longboat till he's sober!";
+        String concat = stringOne.concat(stringTwo);
+        System.out.println(concat);
+        System.out.println(stringOne.charAt(3));
+        System.out.println(stringOne.compareTo(stringTwo));
+        System.out.println(stringOne.contains(stringTwo.substring(24, 25)));
+        System.out.println(stringTwo.startsWith("Put"));
+        System.out.println(stringOne.equals(stringTwo));
+        System.out.println(stringOne.isEmpty());
+        System.out.println(stringTwo.length());
+        System.out.println(stringOne.matches("\\D*"));
+        System.out.println(stringOne.replace(stringOne.substring(5, 7), "you"));
+        String[] splitted = stringOne.split(" ");
+        System.out.println(splitted[0]);
+        System.out.println(Arrays.toString(splitted));
+        System.out.println(stringOne.substring(0, 5));
+        char[] myChatarray = stringOne.toCharArray();
+        System.out.println(myChatarray[0]);
+        System.out.println(stringOne.toLowerCase());
+        System.out.println(stringOne.toUpperCase());
+        String trimExample = "                   start";
+        System.out.println(trimExample);
+        System.out.println(trimExample.trim());
+        System.out.println(stringOne.replace("a", "o"));
+        int myIntToString = 94329423;
+        String convertedString = String.valueOf(myIntToString);
+        System.out.println(convertedString);
     }
 }
