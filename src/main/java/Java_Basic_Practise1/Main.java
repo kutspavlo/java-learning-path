@@ -1,10 +1,13 @@
 package Java_Basic_Practise1;
 
-import java.sql.Array;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         //1. Create and initialize 8 variables – one for each primitive type.
         byte byteVar = 111;
@@ -59,6 +62,7 @@ public class Main {
         System.out.println(x);
         System.out.println((x < y) && (z > 10000));
         System.out.println(!( t && f) || !f);
+        System.out.println("************************************");
 
         //3. Use Math class methods with the variables
         int max = Math.max(99, y);
@@ -98,5 +102,30 @@ public class Main {
         int myIntToString = 94329423;
         String convertedString = String.valueOf(myIntToString);
         System.out.println(convertedString);
+        System.out.println("************************************");
+
+        //6. Console input/output example
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter your name.");
+        String name = in.nextLine();
+        String capName = name.substring(0, 1).toUpperCase() + name.substring(1);
+        System.out.println("Enter your age.");
+        String age = in.nextLine();
+        System.out.println("Your name is " + capName + " and you are " + age + " years old.");
+
+        //7. File input/output example: implement the functionality from previous
+        //example using files for input and output data.
+        File myFile = new File("src/main/java/Java_Basic_Practise1/my.txt");
+        System.out.println(myFile.getName());
+        System.out.println(myFile.getAbsolutePath());
+        System.out.println(myFile.exists());
+        String writeStr = "Pavlo 30";
+        byte [] strBytes = writeStr.getBytes();
+        Files.write(Paths.get(String.valueOf(myFile)), strBytes);
+        byte [] readedBytes = Files.readAllBytes(Paths.get(String.valueOf(myFile)));
+        String readedString = new String(readedBytes);
+        System.out.println(readedString);
+        String [] splttedString = readedString.split(" ");
+        System.out.println("Your name is " + splttedString[0] + " and you are " + splttedString[1] + " years old");
+        }
     }
-}
