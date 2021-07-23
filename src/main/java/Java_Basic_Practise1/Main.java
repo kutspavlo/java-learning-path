@@ -33,9 +33,9 @@ public class Main {
         float myFloat = byteVar;
         System.out.println(myFloat);
         //narrow casting + using constant
-        final byte myNewByte = (byte) (intVar/10000);
+        final byte myNewByte = (byte) (intVar / 10000);
         System.out.println(myNewByte);
-        final float myNewFloat = (float) (doubleVar/2);
+        final float myNewFloat = (float) (doubleVar / 2);
         System.out.println(myNewFloat);
         System.out.println("************************************");
 
@@ -52,23 +52,23 @@ public class Main {
         System.out.println(ded);
         int mult = x * y;
         System.out.println(mult);
-        System.out.println(z%y);
+        System.out.println(z % y);
         System.out.println(++x);
         System.out.println(2 + ++x);
         System.out.println(~x);
         System.out.println(!t);
-        System.out.println(10<<2);
+        System.out.println(10 << 2);
         System.out.println(x == y);
         System.out.println(x);
         System.out.println((x < y) && (z > 10000));
-        System.out.println(!( t && f) || !f);
+        System.out.println(!(t && f) || !f);
         System.out.println("************************************");
 
         //3. Use Math class methods with the variables
         int max = Math.max(99, y);
         System.out.println(max);
         double mathInt = Math.random();
-        System.out.println("You're on " + Math.round(mathInt*100) + "% lucky today");
+        System.out.println("You're on " + Math.round(mathInt * 100) + "% lucky today");
         double tang = Math.tan(0.785398);
         System.out.println(tang);
 
@@ -112,6 +112,7 @@ public class Main {
         System.out.println("Enter your age.");
         String age = in.nextLine();
         System.out.println("Your name is " + capName + " and you are " + age + " years old.");
+        System.out.println("************************************");
 
         //7. File input/output example: implement the functionality from previous
         //example using files for input and output data.
@@ -119,13 +120,92 @@ public class Main {
         System.out.println(myFile.getName());
         System.out.println(myFile.getAbsolutePath());
         System.out.println(myFile.exists());
-        String writeStr = "Pavlo 30";
-        byte [] strBytes = writeStr.getBytes();
-        Files.write(Paths.get(String.valueOf(myFile)), strBytes);
-        byte [] readedBytes = Files.readAllBytes(Paths.get(String.valueOf(myFile)));
+        String writeStr = "Pavlo 40";
+        byte[] strBytes = writeStr.getBytes();
+        Files.write(myFile.toPath(), strBytes);
+        byte[] readedBytes = Files.readAllBytes(myFile.toPath());
         String readedString = new String(readedBytes);
         System.out.println(readedString);
-        String [] splttedString = readedString.split(" ");
+        String[] splttedString = readedString.split(" ");
         System.out.println("Your name is " + splttedString[0] + " and you are " + splttedString[1] + " years old");
+        System.out.println("************************************");
+
+        //8. Compare pairs of numbers, strings, chars using conditional statement
+        //   and print the greater value;
+        int comp1 = 38;
+        int comp2 = 18;
+
+        if (comp1 > comp2) System.out.println(comp1 + " is bigger then " + comp2);
+        else System.out.println(comp1 + " is smaller then " + comp2);
+
+        String stringComp1 = "aaaaaaaaaaaaaaaaaaa44";
+        String stringComp2 = "aaaaaaaaaaaaaaaaaaa";
+
+        if (stringComp1.equals(stringComp2)) System.out.println(stringComp1 + " is same as " + stringComp2);
+        else System.out.println(stringComp1 + " is not same as " + stringComp2);
+
+        if (stringComp1.length() > stringComp2.length()) System.out.println(stringComp1 + " is bigger then " + stringComp2);
+        else System.out.println(stringComp1 + " is smaller then " + stringComp2);
+
+        char firstChar = 'A';
+        char secondChar = 'Z';
+        int charCompare = Character.compare(firstChar, secondChar);
+        System.out.println(charCompare);
+
+        if (charCompare < 0) System.out.println(firstChar + " is less then " + secondChar);
+        else System.out.println(firstChar + " is bigger then " + secondChar);
+
+        //9. Perform the same using ternary operator;
+        String resultInt = (comp1 > comp2) ? comp1 + " is bigger then " + comp2 : stringComp1 + " is not same as " + stringComp2;
+        System.out.println(resultInt);
+
+        String resultString = (stringComp1.length() > stringComp2.length()) ? stringComp1 + " is bigger then " + stringComp2
+                : stringComp1 + " is smaller then " + stringComp2;
+        System.out.println(resultString);
+
+        String resultChar = (charCompare < 0) ? firstChar + " is less then " + secondChar : firstChar + " is bigger then " + secondChar;
+        System.out.println(resultChar);
+        System.out.println("************************************");
+
+        //10. Define the season by month name/index using switch operator
+        System.out.println("Input month name starting with capital letter to find out what season is now");
+        String monthName = in.nextLine();
+        switch (monthName) {
+            case "December":
+            case "January":
+            case "February":
+                System.out.println("It's winter now");
+                break;
+            case "March":
+            case "April":
+            case "May":
+                System.out.println("It's spring now");
+                break;
+            case "June":
+            case "July":
+            case "August":
+                System.out.println("It's summer now");
+                break;
+            case "September":
+            case "October":
+            case "November":
+                System.out.println("It's fall now");
+                break;
+            default:
+                System.out.println("Wrong month spelling");
+                break;
+            }
+
+        System.out.println("************************************");
+
+        //11. Print integers from 0 to 100 using all types of loops
+        for (int i = 0; i<=100; i++) {
+            System.out.println(i);
+        }
+
+        int j = 0;
+        while (j <= 100) {
+            System.out.println(j++);
         }
     }
+}
