@@ -207,5 +207,86 @@ public class Main {
         while (j <= 100) {
             System.out.println(j++);
         }
+
+        //12. Calculate the sum of all odd integers from 100 to 500 using loops
+        int sumOdd = 0;
+        for (int i = 101; i<=500; i = i + 2) {
+            sumOdd+=i;
+        }
+        System.out.println(sumOdd);
+
+        int k = 100;
+        int sumOdd2 = 0;
+        while (k <= 500) {
+            sumOdd2+=k;
+            k = k+2;
+        }
+        System.out.println(sumOdd2);
+
+        //13. Create a one-dimensional array of strings
+        String[] myArray = new String [] {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        System.out.println(Arrays.toString(myArray));
+        Arrays.sort(myArray);
+        System.out.println(Arrays.toString(myArray));
+
+        //bubble sort
+        String temp;
+        for (int i = 0; i < myArray.length; i++) {
+            for (j = i + 1; j < myArray.length; j++) {
+                if (myArray[i].compareTo(myArray[j]) > 0) {
+                    temp = myArray[j];
+                    myArray[j] = myArray[i];
+                    myArray[i] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(myArray));
+        //Concatenate all the strings to a single string (use space symbol as a delimiter)
+        String tempString = myArray[0];
+        String joined = new String();
+        for (int i = 1; i < myArray.length; i++){
+            joined = String.join(" ",tempString, myArray[i]);
+            tempString = joined;
+        }
+        System.out.println(joined);
+
+        //14. Create multidimensional array of doubles
+        double [][] myDoubleArray = new double[5][2];
+
+        for (int i = 0; i < myDoubleArray.length; i++) {
+            for (int l = 0; l < myDoubleArray[i].length; l++) {
+                myDoubleArray[i][l] = Math.round(Math.random()*100);
+            }
+        }
+        System.out.println(Arrays.deepToString(myDoubleArray));
+
+        double array2dSum = 0.0;
+        for (int i = 0; i < myDoubleArray.length; i++) {
+            for (int l = 0; l < myDoubleArray[i].length; l++) {
+                array2dSum += myDoubleArray[i][l];
+            }
+        }
+        System.out.println(array2dSum);
+
+        double[][] myRagged2dArray = new double[3][];
+        myRagged2dArray[0] = new double[2];
+        myRagged2dArray[1] = new double[5];
+        myRagged2dArray[2] = new double[7];
+
+        for (int i = 0; i < myRagged2dArray.length; i++) {
+            for (int l = 0; l < myRagged2dArray[i].length; l++) {
+                myRagged2dArray[i][l] = Math.round(Math.random()*100);
+            }
+        }
+        System.out.println(Arrays.deepToString(myRagged2dArray));
+
+        boolean isRagged = false;
+        for (int i = 0; i < myRagged2dArray.length; i++) {
+            if (myRagged2dArray[i].length != myRagged2dArray[0].length) {
+                isRagged = true;
+            }
+        }
+        System.out.println("Array is ragged: " + Boolean.toString(isRagged));
+
     }
 }
