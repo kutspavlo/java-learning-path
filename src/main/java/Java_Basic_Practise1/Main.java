@@ -288,5 +288,37 @@ public class Main {
         }
         System.out.println("Array is ragged: " + Boolean.toString(isRagged));
 
+        //15. Create square matrix of integers and transpose it using loops.
+        int[][] matrix = new int[5][5];
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int l = 0; l < matrix[i].length; l++) {
+                matrix[i][l] = (int) (Math.random()*10);
+            }
+        }
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int l = 0; l < matrix[i].length; l++) {
+                System.out.print(matrix[i][l] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("*********************");
+
+        int[][] transpose = new int[5][5];
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int l = 0; l < matrix[i].length; l++) {
+                transpose[i][l] = matrix[l][i];
+            }
+        }
+
+        for (int i = 0; i < transpose.length; i++) {
+            for (int l = 0; l < transpose[i].length; l++) {
+                System.out.print(transpose[i][l] + " ");
+            }
+            System.out.println();
+        }
     }
 }
