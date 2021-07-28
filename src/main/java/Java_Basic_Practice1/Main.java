@@ -1,8 +1,7 @@
-package Java_Basic_Practise1;
+package Java_Basic_Practice1;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Scanner;
 
