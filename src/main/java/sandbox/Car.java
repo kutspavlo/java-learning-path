@@ -7,11 +7,21 @@ public class Car {
         this.color = theColor;
         this.brand = theBrand;
     }
-    public String getCarBrand() {
-        return this.brand;
+
+    public String getBrand() {
+        return brand;
     }
-    public String getCarColor() {
-        return this.color;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
 
