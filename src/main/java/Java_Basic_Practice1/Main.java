@@ -115,7 +115,7 @@ public class Main {
 
         //7. File input/output example: implement the functionality from previous
         //example using files for input and output data.
-        File myFile = new File("src/main/java/Java_Basic_Practise1/my.txt");
+        File myFile = new File("src/main/java/Java_Basic_Practice1/my.txt");
         System.out.println(myFile.getName());
         System.out.println(myFile.getAbsolutePath());
         System.out.println(myFile.exists());

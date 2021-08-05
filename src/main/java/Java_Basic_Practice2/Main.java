@@ -1,7 +1,11 @@
 package Java_Basic_Practice2;
 
+import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.nio.file.Files;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -12,7 +16,7 @@ public class Main {
         System.out.println(num);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //1. Create several variables using wrapper classes Byte, Short, etc.
         //   Perform Autoboxing/unboxing for them
         Byte myByte = 5;
@@ -46,9 +50,33 @@ public class Main {
         System.out.println(today.equals(anotherDate));
         System.out.println(today.before(oneMore));
 
-        Calendar myCal = new GregorianCalendar(2020, 07, 15);
+        Calendar myCal = new GregorianCalendar(2020, 7, 15);
+        Calendar myCalClone = (Calendar) myCal.clone();
+        Calendar myCal2 = new GregorianCalendar(2019, 8, 15);
         System.out.println(myCal);
         Date dateFromCal = myCal.getTime();
         System.out.println(dateFromCal);
+        System.out.println(myCal.getCalendarType());
+        System.out.println(myCal.getFirstDayOfWeek());
+        System.out.println(myCal.compareTo(myCal2));
+        System.out.println(myCal.equals(myCal2));
+        System.out.println(myCal.equals(myCalClone));
+
+        File myFile = new File("src/main/java/Java_Basic_Practice2/my.txt");
+        System.out.println(myFile.getAbsolutePath());
+        System.out.println(myFile.canRead());
+        System.out.println(myFile.canWrite());
+        String myStr = new String("test test");
+        Files.write(myFile.toPath(), myStr.getBytes());
+        System.out.println(myFile.length());
+        System.out.println(myFile.delete());
+
+        Person pavlo = new Person("Pavlo", "Kuts");
+        System.out.println(pavlo.getFullName());
+        pavlo.setDob(LocalDate.parse("1991-01-22"));
+        System.out.println(pavlo.getDob());
+        System.out.println(pavlo.getAge());
+
+
     }
 }
