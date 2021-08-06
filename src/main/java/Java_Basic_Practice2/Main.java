@@ -1,14 +1,10 @@
 package Java_Basic_Practice2;
 
 import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.file.Files;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 public class Main {
 
@@ -16,7 +12,7 @@ public class Main {
         System.out.println(num);
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         //1. Create several variables using wrapper classes Byte, Short, etc.
         //   Perform Autoboxing/unboxing for them
         Byte myByte = 5;
@@ -71,12 +67,57 @@ public class Main {
         System.out.println(myFile.length());
         System.out.println(myFile.delete());
 
-        Person pavlo = new Person("Pavlo", "Kuts");
+        Person pavlo = new Person("Pavlo", "Kuts", "1991-01-22");
         System.out.println(pavlo.getFullName());
-        pavlo.setDob(LocalDate.parse("1991-01-22"));
         System.out.println(pavlo.getDob());
         System.out.println(pavlo.getAge());
 
+        Person alex = new Person("Alex", "Dvor", "1999-07-07");
+        Person sara = new Person("Sara", "Connor", "1956-08-15");
+
+        Person[] guys = {pavlo, alex, sara};
+        System.out.println(guys[0].getFullName() + "   " + guys[1].getFullName() + "   " + guys[2].getFullName());
+        Arrays.sort(guys, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getFullName().compareTo(o2.getFullName());
+            }
+        });
+        System.out.println(guys[0].getFullName() + "   " + guys[1].getFullName() + "   " + guys[2].getFullName());
+
+        System.out.println(guys[0].getAge() + "   " + guys[1].getAge() + "   " + guys[2].getAge());
+        Arrays.sort(guys, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                if (o1.getAge() > o2.getAge())
+                    return 1;
+                else if (o1.getAge() == o2.getAge())
+                    return 0;
+                return -1;
+            }
+        });
+        System.out.println(guys[0].getAge() + "   " + guys[1].getAge() + "   " + guys[2].getAge());
+        System.out.println(pavlo.getId());
+        pavlo.setBoss(alex);
+        System.out.println(pavlo.getBoss().getFullName());
+
+        pavlo.addToColleagues(alex);
+        pavlo.addToColleagues(sara);
+
+        System.out.print("My colleagues:  ");
+        for (Person element : pavlo.getColleagues()) {
+            System.out.print(element.getFullName() + "  ");
+        }
+        System.out.println();
+        Person kate = new Person();
+        kate.setFirstName("Kate");
+        kate.setLastName("Johnson");
+        System.out.println(kate.getFullName());
+        System.out.println(Person.getTotalNumber());
+
+        Person emptyOne = new Person();
+        System.out.println(emptyOne.getFullName());
+        System.out.println(emptyOne.getAge());
 
     }
 }
