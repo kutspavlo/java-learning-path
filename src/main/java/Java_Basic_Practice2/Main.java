@@ -119,5 +119,6 @@ public class Main {
         System.out.println(emptyOne.getFullName());
         System.out.println(emptyOne.getAge());
 
+
     }
 }

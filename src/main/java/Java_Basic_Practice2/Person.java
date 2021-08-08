@@ -32,7 +32,7 @@ public class Person {
         this.lastName = lastName;
         this.dob = LocalDate.parse(dob);
         if (this.dob.isAfter(MIN_DATE_OF_BIRTH)) {
-            throw new Exception();
+            throw new Exception("The minimum date of birth is " + MIN_DATE_OF_BIRTH.toString());
         }
         count++;
     }
