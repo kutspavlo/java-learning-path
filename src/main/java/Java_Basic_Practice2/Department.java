@@ -33,6 +33,26 @@ public class Department {
         return total;
     }
 
+    public byte getSize() {
+        return (byte) members.length;
+    }
+
+    public Group[] getGroups() {
+        int total = 0;
+        for (int i = 0; i < specialties.length; i++) {
+            total += specialties[i].getGroups().length;
+        }
+
+        Group[] groups = new Group[total];
+        int count = 0;
+        for (int i = 0; i < specialties.length; i++) {
+            for (int j = 0; j < specialties[i].getGroups().length; j++) {
+                groups[count] = specialties[i].getGroups()[j];
+            }
+        }
+        return  groups;
+    }
+
 
     public Employee getHead() {
         return head;
