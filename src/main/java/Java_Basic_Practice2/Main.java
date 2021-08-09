@@ -1,6 +1,9 @@
 package Java_Basic_Practice2;
 
-import java.io.File;
+import com.oracle.tools.packager.IOUtils;
+import com.sun.tools.example.debug.expr.ASCII_UCodeESC_CharStream;
+
+import java.io.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.file.Files;
@@ -65,7 +68,30 @@ public class Main {
         String myStr = new String("test test");
         Files.write(myFile.toPath(), myStr.getBytes());
         System.out.println(myFile.length());
-        System.out.println(myFile.delete());
+
+        byte[] array1 = new byte[]{1, 3, 5, 7};
+        ByteArrayInputStream bis1;
+        bis1 = new ByteArrayInputStream(array1);
+        int b;
+        while((b = bis1.read()) != -1)
+            System.out.println(b);
+
+        String text = "Hey there";
+        byte[] array2 = text.getBytes();
+        ByteArrayInputStream bis2;
+        bis2 = new ByteArrayInputStream(array2, 0, 5);
+        while((b = bis2.read()) != -1)
+            System.out.println((char)b);
+
+        String str23 = "I'm ok";
+        StringBuffer strBuff = new StringBuffer(str23);
+        System.out.println(strBuff.length());
+        System.out.println(strBuff.capacity());
+        strBuff.ensureCapacity(86);
+        System.out.println(strBuff.capacity());
+        strBuff.setCharAt(5, 'o');
+        System.out.println(strBuff);
+
 
         Person pavlo = new Person("Pavlo", "Kuts", "1991-01-22");
         System.out.println(pavlo.getFullName());
@@ -118,7 +144,5 @@ public class Main {
         Person emptyOne = new Person();
         System.out.println(emptyOne.getFullName());
         System.out.println(emptyOne.getAge());
-
-
     }
 }
