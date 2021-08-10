@@ -7,6 +7,24 @@ import java.util.List;
 
 
 public class Person {
+
+//    4. Create class Person. And then:
+//    Add fields: firstName, lastName, dateOfBirth;
+//    Add methods: getFullName(), getAge();
+//    Create several instances of this class;
+//    Put them to an array and sort it by:
+//    Full name;
+//    Age;
+//    Add following fields: id, Person boss, Person[] colleagues;
+//    Create a group of employees and join them using these fields;
+//    Add more constructors to Person class;
+//    Add validation functionality to them;
+//    Mark id, dateOfBirth as final fields;
+//    Add static counter field and static constant MIN_DATE_OF_BIRTH;
+//    Refactor the validation logic in the constructors accordingly;
+//    Add static method getTotalNumber();
+//    Add an initialization block
+
     private String firstName;
     private String lastName;
     private LocalDate dob;

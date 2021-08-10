@@ -1,11 +1,17 @@
 package Java_Basic_Practice3;
 
 import Java_Basic_Practice2.Person;
-
 import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 public class Book implements Cloneable {
+
+    //        1. Create a Book class and then:
+//        Add fields: String isbn, String title, String text, Person author, short pagesNumber;
+//        Make the fields private;
+//        Add getters and setters with validation;
+//        Add constructors which use the setters;
+//        Override equals, hashCode, toString, clone methods. Last one should be public
+
     private String isbn;
     private String title;
     private Person author;
