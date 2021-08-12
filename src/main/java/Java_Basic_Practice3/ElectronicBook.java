@@ -2,6 +2,9 @@ package Java_Basic_Practice3;
 
 import Java_Basic_Practice2.Person;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
 public class ElectronicBook extends Book{
 
 //    2. Create an ElectronicBook class as child of the Book class and then:
@@ -13,6 +16,18 @@ public class ElectronicBook extends Book{
     private long sizeInBytes;
     private String format;
 
+    public void print(OutputStream outputStream) {
+        if (outputStream.getClass() == FileOutputStream.class) {
+           String text = "Chapter 2 of the book";
+           byte [] buffer = text.getBytes();
+           try  {
+               outputStream.write(buffer);
+           } catch (Exception e) { System.out.println(e.getStackTrace());
+           }
+        } else System.out.println(outputStream);
+
+    }
+
     public ElectronicBook(String title, Person author, long sizeInBytes) {
         super(title, author);
         this.sizeInBytes = sizeInBytes;
@@ -20,6 +35,17 @@ public class ElectronicBook extends Book{
 
     public long getSizeInBytes() {
         return sizeInBytes;
+    }
+
+    @Override
+    public void getAuthorCredentials() {
+        System.out.println(this.getAuthor() + "home blala");
+    }
+
+    @Override
+    public void getBookRanking() {
+        System.out.println(this.getTitle() + " is the best book in our ranking");
+
     }
 
     @Override

@@ -3,7 +3,7 @@ package Java_Basic_Practice3;
 import Java_Basic_Practice2.Person;
 import java.util.Objects;
 
-public class Book implements Cloneable {
+public abstract class Book implements Cloneable, Printable {
 
     //        1. Create a Book class and then:
 //        Add fields: String isbn, String title, String text, Person author, short pagesNumber;
@@ -29,6 +29,10 @@ public class Book implements Cloneable {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public abstract void getAuthorCredentials();
+
+    public abstract void getBookRanking();
 
     public String getTitle() {
         return title;
