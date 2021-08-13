@@ -28,8 +28,8 @@ public class ElectronicBook extends Book{
 
     }
 
-    public ElectronicBook(String title, Person author, long sizeInBytes) {
-        super(title, author);
+    public ElectronicBook(String title, long sizeInBytes) {
+        super(title);
         this.sizeInBytes = sizeInBytes;
     }
 

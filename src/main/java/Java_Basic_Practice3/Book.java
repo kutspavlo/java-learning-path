@@ -14,16 +14,47 @@ public abstract class Book implements Cloneable, Printable {
 
     private String isbn;
     private String title;
-    private Person author;
+    private BookAuthor author;
     private short pagesNumber;
 
     public Book(){
-
     }
 
-    public Book(String title, Person author){
+    public Book(String title){
         this.setTitle(title);
-        this.setAuthor(author);
+    }
+
+    public class TableOfContent {
+        private String[] chapters;
+        private String bookStructure;
+
+        public void setChapters(String[] chapters) {
+            this.chapters = chapters;
+        }
+
+        public void setBookStructure(String bookStructure) {
+            this.bookStructure = bookStructure;
+        }
+
+        public String getBookStructure() {
+            return bookStructure;
+        }
+
+        public String[] getChapters() {
+            return chapters;
+        }
+    }
+
+    public static class BookAuthor extends Person{
+        private String publishingHouse;
+
+        public void setPublishingHouse(String publishingHouse) {
+            this.publishingHouse = publishingHouse;
+        }
+
+        public String getPublishingHouse() {
+            return publishingHouse;
+        }
     }
 
     public void setTitle(String title) {
@@ -78,7 +109,7 @@ public abstract class Book implements Cloneable, Printable {
         return isbn;
     }
 
-    public void setAuthor(Person author) {
+    public void setAuthor(BookAuthor author) {
         this.author = author;
     }
 

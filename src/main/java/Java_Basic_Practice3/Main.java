@@ -6,6 +6,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
@@ -73,7 +75,7 @@ public class Main {
 //
 //        System.out.println(books[0].getClass());
 
-        ElectronicBook eBook = new ElectronicBook("The Sky", hemingway, 323523);
+        ElectronicBook eBook = new ElectronicBook("The Sky", 323523);
         eBook.getBookRanking();
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -91,6 +93,31 @@ public class Main {
         FileOutputStream fileOut = new FileOutputStream(myFile);
 
         eBook.print(fileOut);
+
+        Book.TableOfContent contTable = eBook.new TableOfContent();
+        contTable.setBookStructure("simple book");
+        System.out.println(contTable.getBookStructure());
+
+        ElectronicBook eBookNew = new ElectronicBook("New one", 412412412);
+        Book.BookAuthor twen = new Book.BookAuthor();
+        twen.setFirstName("Mark");
+        twen.setLastName("Twen");
+        System.out.println(twen.getFullName());
+        eBookNew.setAuthor(twen);
+        System.out.println(eBookNew.getAuthor().getFullName());
+
+        Book[] bookArr = {eBook, eBookNew};
+        System.out.println(bookArr[1].getTitle());
+        Comparator x = new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        };
+
+        Arrays.sort(bookArr, x);
+
+        System.out.println(bookArr[1].getTitle());
     }
 
 }
