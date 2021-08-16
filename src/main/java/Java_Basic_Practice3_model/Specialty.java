@@ -1,5 +1,7 @@
 package Java_Basic_Practice3_model;
 
+import Java_Basic_Practice3.Book;
+
 import java.util.Arrays;
 
 public class Specialty extends StructuralUnit {
@@ -25,8 +27,13 @@ public class Specialty extends StructuralUnit {
     }
 
     public void addGroup(Group group) {
-        groups = Arrays.copyOf(groups, groups.length + 1);
-        groups[groups.length - 1] = group;
+        if (groups == null) {
+            groups = new Group[1];
+            groups[0] = group;
+        } else {
+            groups = Arrays.copyOf(groups, groups.length + 1);
+            groups[groups.length - 1] = group;
+        }
     }
 
     public void removeGroup(Group group) {

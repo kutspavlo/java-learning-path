@@ -41,6 +41,7 @@ public class Student extends Person implements Fireable{
     }
 
     public void fire(){
-        System.out.println(this.getFirstName() + " " + this.getLastName() + " get fired today :(");
+        System.out.println(String.format("%s %s has been fired.", this.getFirstName(), this.getLastName()));
+        this.group.removeStudent(Student.this);
     }
 }

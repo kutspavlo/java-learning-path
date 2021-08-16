@@ -40,8 +40,13 @@ public class Faculty extends StructuralUnit{
     }
 
     public void addDepartment(Department department) {
-        departments = Arrays.copyOf(departments, departments.length + 1);
-        departments[departments.length - 1] = department;
+        if (departments == null) {
+            departments = new Department[1];
+            departments[0] = department;
+        } else {
+            departments = Arrays.copyOf(departments, departments.length + 1);
+            departments[departments.length - 1] = department;
+        }
     }
 
     public void removeDepartment(Department department) {

@@ -1,9 +1,11 @@
 package Java_Basic_Practice3;
 
 import Java_Basic_Practice2.Person;
+
+import java.util.Comparator;
 import java.util.Objects;
 
-public abstract class Book implements Cloneable, Printable {
+public abstract class Book implements Cloneable, Printable{
 
     //        1. Create a Book class and then:
 //        Add fields: String isbn, String title, String text, Person author, short pagesNumber;
@@ -23,6 +25,9 @@ public abstract class Book implements Cloneable, Printable {
     public Book(String title){
         this.setTitle(title);
     }
+
+//    "7. Add an inner class TableOfContents which encapsulates information
+//    about chapters and book structure"
 
     public class TableOfContent {
         private String[] chapters;
@@ -45,6 +50,11 @@ public abstract class Book implements Cloneable, Printable {
         }
     }
 
+//    "8. Add a nested class BookAuthor which encapsulates information about
+//    the author and extends the Person class. Change the author field type
+//    to BookAuthor. Think why TableOfContents should be inner but
+//    BookAuthor is nested"
+
     public static class BookAuthor extends Person{
         private String publishingHouse;
 
@@ -61,6 +71,8 @@ public abstract class Book implements Cloneable, Printable {
         this.title = title;
     }
 
+//    5. Make the Book class abstract and add few abstract methods to it
+
     public abstract void getAuthorCredentials();
 
     public abstract void getBookRanking();
@@ -70,7 +82,7 @@ public abstract class Book implements Cloneable, Printable {
     }
 
     public void setIsbn(String isbn) throws Exception {
-        if (! isbn.startsWith("isbn")) throw new Exception("should start with 'isbn");
+        if (! isbn.startsWith("isbn")) throw new Exception("should start with isbn");
         this.isbn = isbn;
     }
 
@@ -125,4 +137,22 @@ public abstract class Book implements Cloneable, Printable {
         return pagesNumber;
     }
 
+
+//    "9. Sort the array from task 3 using the method Arrays.sort with a comparator.
+//    Create few local/anonymous classes which implement Comparator interface.
+//    So you’ll create few different rules for sorting"
+
+    static class sortByISBN implements Comparator<Book> {
+        @Override
+        public int compare(Book o1, Book o2) {
+            return o1.getIsbn().compareTo(o2.getIsbn());
+        }
+    }
+
+    static class sortByTitle implements Comparator<Book> {
+        @Override
+        public int compare(Book o1, Book o2) {
+            return o1.getTitle().compareTo(o2.getTitle());
+        }
+    }
 }

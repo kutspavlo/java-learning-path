@@ -53,8 +53,13 @@ public class Group extends StructuralUnit {
     }
 
     public void addStudent(Student student) {
-        students = Arrays.copyOf(students, students.length + 1);
-        students[students.length - 1] = student;
+        if (students == null) {
+            students = new Student[1];
+            students[0] = student;
+        } else {
+            students = Arrays.copyOf(students, students.length + 1);
+            students[students.length - 1] = student;
+        }
     }
 
     public void removeStudent(Student student) {

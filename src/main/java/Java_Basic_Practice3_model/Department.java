@@ -35,8 +35,13 @@ public class Department extends StructuralUnit {
     }
 
     public void addSpecialty(Specialty specialty){
-        specialties = Arrays.copyOf(specialties, specialties.length + 1);
-        specialties[specialties.length - 1] = specialty;
+        if (specialties == null) {
+            specialties = new Specialty[1];
+            specialties[0] = specialty;
+        } else {
+            specialties = Arrays.copyOf(specialties, specialties.length + 1);
+            specialties[specialties.length - 1] = specialty;
+        }
     }
 
     public void removeSpecialty(Specialty specialty){

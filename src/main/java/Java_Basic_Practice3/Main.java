@@ -21,7 +21,7 @@ public class Main {
 //
 //        System.out.println(myBook.getIsbn());
 //
-          Person hemingway = new Person();
+        Person hemingway = new Person();
 //
 //        Book anotherBook = new Book("Old man and sea", hemingway);
 //        System.out.println(anotherBook.getTitle());
@@ -106,18 +106,18 @@ public class Main {
         eBookNew.setAuthor(twen);
         System.out.println(eBookNew.getAuthor().getFullName());
 
+        eBook.setIsbn("isbn:3333333333");
+        eBookNew.setIsbn("isbn:2222222222");
+
         Book[] bookArr = {eBook, eBookNew};
-        System.out.println(bookArr[1].getTitle());
-        Comparator x = new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
-        };
 
-        Arrays.sort(bookArr, x);
+        Arrays.sort(bookArr, new Book.sortByISBN());
+        System.out.println(bookArr[0].getIsbn());
 
-        System.out.println(bookArr[1].getTitle());
+        eBook.setTitle("BBBBBBBBB");
+        eBookNew.setTitle("AAAAAAAAA");
+        Arrays.sort(bookArr, new Book.sortByTitle());
+        System.out.println(bookArr[0].getTitle());
+
     }
-
 }
