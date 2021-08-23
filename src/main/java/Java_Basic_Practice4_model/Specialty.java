@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Specialty extends StructuralUnit {
     private Group[] groups;
     private Department department;
+    private Degree[] degrees;
 
     public Specialty(String title, Department department) {
         super(title);
@@ -46,6 +47,34 @@ public class Specialty extends StructuralUnit {
         groups = Arrays.copyOf(groups, groups.length - 1);
         System.arraycopy(groupsCopy, 0, groups, 0, index);
         System.arraycopy(groupsCopy,index + 1, groups, index, groups.length - index);
+    }
+
+    public void addDegree(Degree degree) {
+        if (degrees == null) {
+            degrees = new Degree[1];
+            degrees[0] = degree;
+        } else {
+            degrees = Arrays.copyOf(degrees, degrees.length + 1);
+            degrees[degrees.length - 1] = degree;
+        }
+    }
+
+    public void removeDegree(Degree degree) {
+        Degree[] degreesCopy = degrees.clone();
+        int index = 0;
+        for (int i = 0; i < degrees.length; i++) {
+            if (degrees[i] == degree) {
+                index = i;
+                break;
+            }
+        }
+        degrees = Arrays.copyOf(degrees, degrees.length - 1);
+        System.arraycopy(degreesCopy, 0, degrees, 0, index);
+        System.arraycopy(degreesCopy,index + 1, degrees, index, degrees.length - index);
+    }
+
+    public Degree[] getDegrees() {
+        return degrees;
     }
 
     public int getStudentsNumber() {

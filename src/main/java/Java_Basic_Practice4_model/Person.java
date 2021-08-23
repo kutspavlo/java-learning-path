@@ -2,13 +2,14 @@ package Java_Basic_Practice4_model;
 
 import java.util.Calendar;
 import java.util.Date;
-import static Java_Basic_Practice4_model.Sex.*;
 
 public abstract class Person extends Persistable {
     private String firstName;
     private String lastName;
     private Date birthday;
     private Sex sex;
+    private Status status;
+
 
     public Person(String firstName, String lastName, Date birthday) {
         this.firstName = firstName;
@@ -46,6 +47,14 @@ public abstract class Person extends Persistable {
 
     public void setSex(Sex sex) {
         this.sex = sex;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public short getAge() {

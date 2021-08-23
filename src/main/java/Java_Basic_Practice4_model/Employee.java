@@ -6,6 +6,7 @@ import java.util.Date;
 public class Employee extends Person implements Fireable {
     private Date hireDate;
     private Department department;
+    private FormOfWork formOfWork;
 
     public Employee(String firstName, String lastName, Date birthday, Date hireDate){
         super(firstName, lastName, birthday);
@@ -37,6 +38,14 @@ public class Employee extends Person implements Fireable {
         return (short) experience;
     }
 
+    public FormOfWork getFormOfWork() {
+        return formOfWork;
+    }
+
+    public void setFormOfWork(FormOfWork formOfWork) {
+        this.formOfWork = formOfWork;
+    }
+
     public Employee getBoss(){
         return department.getHead();
     }
@@ -48,5 +57,6 @@ public class Employee extends Person implements Fireable {
 
     public void fire(){
         System.out.println(String.format("%s %s has been fired.", this.getFirstName(), this.getLastName()));
+        this.setStatus(Status.FIRED);
     }
 }

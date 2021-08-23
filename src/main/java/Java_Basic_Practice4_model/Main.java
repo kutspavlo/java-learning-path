@@ -35,5 +35,23 @@ public class Main {
 
         me.setSex(Sex.MALE);
         System.out.println(me.getSex());
+
+        me.setStatus(Status.ACTIVE);
+        System.out.println(me.getStatus());
+
+        me.setFormOfEducation(FormOfEducation.ONLINE);
+        System.out.println(me.getFormOfEducation());
+
+        myCurator.setFormOfWork(FormOfWork.PERMANENT);
+        System.out.println(myCurator.getFormOfWork());
+
+        radioSpec.addDegree(Degree.BACHELOR);
+        System.out.println(radioSpec.getDegrees()[0]);
+        radioSpec.removeDegree(Degree.BACHELOR);
+        System.out.println(radioSpec.getDegrees().length);
+        radioSpec.addDegree(Degree.BACHELOR);
+        radioSpec.addDegree(Degree.MASTER);
+        radioSpec.addDegree(Degree.PHD);
+        System.out.println(radioSpec.getDegrees().length);
     }
 }

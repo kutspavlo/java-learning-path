@@ -5,6 +5,7 @@ import java.util.Date;
 public class Student extends Person implements Fireable {
     private Date enrollmentDate;
     private Group group;
+    private FormOfEducation formOfEducation;
 
     public Student(String firstName, String lastName, Date birthday, Date enrollmentDate){
         super(firstName, lastName, birthday);
@@ -35,6 +36,14 @@ public class Student extends Person implements Fireable {
         return group.getCurator();
     }
 
+    public FormOfEducation getFormOfEducation() {
+        return formOfEducation;
+    }
+
+    public void setFormOfEducation(FormOfEducation formOfEducation) {
+        this.formOfEducation = formOfEducation;
+    }
+
     @Override
     public Faculty getFaculty() {
         return group.getFaculty();
@@ -43,5 +52,6 @@ public class Student extends Person implements Fireable {
     public void fire(){
         System.out.println(String.format("%s %s has been fired.", this.getFirstName(), this.getLastName()));
         this.group.removeStudent(Student.this);
+        this.setStatus(Status.FIRED);
     }
 }
