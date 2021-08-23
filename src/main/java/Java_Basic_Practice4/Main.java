@@ -2,8 +2,7 @@ package Java_Basic_Practice4;
 
 import java.util.Scanner;
 
-import static Java_Basic_Practice4.Color.RED;
-import static Java_Basic_Practice4.Color.BLACK;
+import static Java_Basic_Practice4.Color.*;
 
 public class Main {
 
@@ -32,6 +31,28 @@ public class Main {
         String myRedString = RED.toString();
         System.out.println(myRedString);
         System.out.println(Color.values()[4] == BLACK);
+
+//        use switch statement for separating “cold”, “warm” and others colors;
+        Scanner sc2 = new Scanner(System.in);
+        String val = sc2.nextLine();
+        switch (Color.valueOf(val)) {
+            case GREEN: case BLUE: case BLACK: case WHITE:
+                System.out.println(String.format("%s is cold color", val));
+                break;
+
+            case RED: case ORANGE:
+                System.out.println(String.format("%s is warm color", val));
+                break;
+        }
+        System.out.println(RED.getRed());
+        System.out.println(RED.getBlue());
+        BLACK.getColorSpec();
+        BLACK.print();
+        RED.print();
+        WHITE.print();
+        GREEN.print();
+        ORANGE.print();
+        BLUE.print();
 
     }
 }
