@@ -7,6 +7,7 @@ public class Main {
         Date myBirthday = new Date(2021, 01, 22);
         Date myEnrollmentDate = new Date();
         Student me = new Student("Pavlo", "Kuts", myBirthday, myEnrollmentDate);
+        System.out.println(me.getBirthday());
         System.out.println(me.getId());
         Employee myCurator = new Employee("John", "Smith", myBirthday, myEnrollmentDate);
         Group myGroup = new Group("Group 17-A", myEnrollmentDate, myCurator);

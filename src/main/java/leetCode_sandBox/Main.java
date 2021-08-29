@@ -1,5 +1,6 @@
 package leetCode_sandBox;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
@@ -78,15 +79,54 @@ public class Main {
         return isAllClosed && isArraySym;
     }
 
-    public static void main(String[] args) {
-        int[] myArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-        shuffle(myArr);
-        for (int i = 0; i < myArr.length; i++) {
-            System.out.print(myArr[i] + " ");
+
+    static int reverse(int x) {
+        int result = 0;
+        System.out.println(Integer.MAX_VALUE);
+
+        while (x != 0)
+        {
+            int tail = x % 10;
+            int newResult = result * 10 + tail;
+            System.out.println("result " + result);
+            System.out.println("tail " + tail);
+            System.out.println("new result " + newResult);
+            System.out.println("new result - tail / 10  = " + (newResult-tail)/10);
+
+            if ((newResult - tail) / 10 != result)
+            { return 0; }
+            result = newResult;
+            x = x / 10;
         }
-        System.out.println();
-        System.out.println("*************");
-        System.out.println(isValid("(){}}{"));
+
+        return result;
+
+        }
+
+        static boolean isPalindrome(int x) {
+        String xStr = String.valueOf(x);
+        int length = xStr.length();
+        int[] xArr = new int[length];
+        int xReversed = 0;
+            for (int i = 0; i < length; i++) {
+                System.out.println( "xxx" + x /(10^(length-i-1)));
+               xReversed = (int) (xReversed + x /Math.round(Math.pow(10, length-i)));
+
+                System.out.println(xReversed);
+            }
+        return true;
+        }
+
+    public static void main(String[] args) {
+//        int[] myArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+//        shuffle(myArr);
+//        for (int i = 0; i < myArr.length; i++) {
+//            System.out.print(myArr[i] + " ");
+//        }
+//        System.out.println();
+//        System.out.println("*************");
+//        System.out.println(isValid("(){}}{"));
+        isPalindrome(123);
 
     }
 
