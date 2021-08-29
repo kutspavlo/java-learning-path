@@ -1,7 +1,5 @@
 package Java_Basic_Practice5_model;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Main {
@@ -30,9 +28,19 @@ public class Main {
         me.fire();
         System.out.println(me.getStatus());
 
-        System.out.println("********");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(df.format(myBirthday));
+        DepartmentService ds = new DepartmentService();
+        Department myNewDep =  ds.create("New Depart", myCurator, myFaculty);
+        System.out.println(myNewDep.getTitle());
+        ds.setFaculty(myNewDep, myFaculty);
+        System.out.println(myNewDep.getFaculty().getTitle());
+
+
+        EmployeeService emp = new EmployeeService();
+        Employee newCurator =  emp.create("Jean", "Bin", myBirthday, myEnrollmentDate);
+        emp.addToDepartment(newCurator, myDepart);
+        System.out.println(myDepart.getEmployees()[0].getFirstName());
+        emp.fire(newCurator);
+        System.out.println(newCurator.getStatus());
 
     }
 }

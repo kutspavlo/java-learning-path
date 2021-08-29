@@ -4,9 +4,15 @@ import java.util.Date;
 
 public class StudentService {
 
-    public Student create(String firstName, String lastName, Date birthday, Date enrollmentDate) throws PersonException {
-        Student student = new Student(firstName, lastName, birthday, enrollmentDate);
-        student.setStatus(Status.NEW);
+    public Student create(String firstName, String lastName, Date birthday, Date enrollmentDate) {
+        Student student = null;
+        try {
+            student = new Student(firstName, lastName, birthday, enrollmentDate);
+            student.setStatus(Status.NEW);
+        } catch (PersonException e) {
+            System.out.println("Make sure that birthday is valid.");
+            e.printStackTrace();
+        }
         return student;
     }
 
