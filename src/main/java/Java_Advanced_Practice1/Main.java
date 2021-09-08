@@ -1,8 +1,6 @@
 package Java_Advanced_Practice1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -171,5 +169,145 @@ public class Main {
         }
         endTime = System.currentTimeMillis();
         System.out.println("Linked list sum of all elems is " + sumResult + " time spent: " +  (endTime - startTime) + " ms");
+
+        //3. Create instances of HashSet using all types of its constructors and then perform
+        //operations from task #1 (where it’s possible to execute)
+        HashSet<String> strHashSet = new HashSet<>();
+        HashSet<String> strHashSetWitInitialCapacity = new HashSet<>(100);
+        HashSet<String> strHashSetWithLoadFactor = new HashSet<String>(1000, 0.50f);
+        HashSet<String> strHashSetFromOtherSet = new HashSet<>(strHashSet);
+
+        //Add a new element to some of them;
+        strHashSet.add("one");
+        strHashSet.add("two");
+
+        //Add all elements of some collection;
+        System.out.println(separator);
+        strHashSetWitInitialCapacity.addAll(strHashSet);
+        System.out.println(strHashSetWitInitialCapacity.contains("one"));
+
+        //Clone
+        System.out.println(separator);
+        HashSet<String> clonedHashSet = (HashSet<String>) strHashSet.clone();
+        System.out.println(clonedHashSet);
+
+        //Check if a hashset contains certain element/collection;
+        System.out.println(separator);
+        System.out.println(clonedHashSet.contains("two"));
+
+        //Check if a set is empty;
+        System.out.println(separator);
+        System.out.println(clonedHashSet.isEmpty());
+
+        //Remove element/collection;
+        System.out.println(separator);
+        clonedHashSet.remove("two");
+        clonedHashSet.clear();
+
+        //Get the intersection of two sets;
+        System.out.println(separator);
+        strHashSet.clear();
+        clonedHashSet.clear();
+        strHashSet.add("one");
+        strHashSet.add("two");
+        strHashSet.add("three");
+        clonedHashSet.add("two");
+        clonedHashSet.add("three");
+        clonedHashSet.add("five");
+        strHashSet.retainAll(clonedHashSet);
+        System.out.println(strHashSet);
+
+        //Convert a set to an array;
+        System.out.println(separator);
+        System.out.println(strHashSet.toArray()[0] + " " + strHashSet.toArray()[1]);
+
+        //Get the size of a list;
+        System.out.println(separator);
+        System.out.println(strHashSet.size());
+
+        //Clear a list;
+        strHashSet.clear();
+        clonedHashSet.clear();
+        strHashSetFromOtherSet.clear();
+
+        //4. Create a HashSet and a TreeSet. Perform the same comparison as was described
+        //in task #2 except getting an element by index
+        System.out.println(separator);
+        HashSet<Integer> intHashSet = new HashSet<>();
+        TreeSet<Integer> intTreeSet = new TreeSet<>();
+
+        for (int i = 0; i < 10000000; i++) {
+            intHashSet.add(i);
+        }
+
+        for (int i = 0; i < 10000000; i++) {
+            intTreeSet.add(i);
+        }
+
+        startTime = System.currentTimeMillis();
+        intHashSet.remove(500000);
+        endTime = System.currentTimeMillis();
+        System.out.println("Hash set remove from the middle  time spent: " +  (endTime - startTime) + " ms");
+
+        startTime = System.currentTimeMillis();
+        intTreeSet.remove(500000);
+        endTime = System.currentTimeMillis();
+        System.out.println("Trees set remove from the middle  time spent: " +  (endTime - startTime) + " ms");
+
+        startTime = System.currentTimeMillis();
+        intHashSet.add(500000);
+        endTime = System.currentTimeMillis();
+        System.out.println("Hash set add to the middle  time spent: " +  (endTime - startTime) + " ms");
+
+        startTime = System.currentTimeMillis();
+        intTreeSet.add(500000);
+        endTime = System.currentTimeMillis();
+        System.out.println("Trees set add to the middle  time spent: " +  (endTime - startTime) + " ms");
+
+        startTime = System.currentTimeMillis();
+        intHashSet.contains(500000);
+        endTime = System.currentTimeMillis();
+        System.out.println("Hash set contains element  time spent: " +  (endTime - startTime) + " ms");
+
+        startTime = System.currentTimeMillis();
+        intTreeSet.contains(500000);
+        endTime = System.currentTimeMillis();
+        System.out.println("Trees set contains element  time spent: " +  (endTime - startTime) + " ms");
+
+        //5. Create a HashMap and then:
+        //Add a new pair key-value to it;
+        HashMap<Integer, String> myHashMap = new HashMap<>();
+        myHashMap.put(1, "one");
+
+        //Add all pairs of another map;
+        System.out.println(separator);
+        HashMap<Integer, String> anotherHashMap = new HashMap<>();
+        anotherHashMap.put(2, "two");
+        anotherHashMap.put(3, "three");
+        myHashMap.putAll(anotherHashMap);
+        System.out.println(myHashMap);
+
+        //Check if the map contains certain key/value;
+        System.out.println(separator);
+        System.out.println(myHashMap.containsKey(2));
+        System.out.println(myHashMap.containsValue("three"));
+
+        //Display all the pairs contained in the map;
+        System.out.println(separator);
+        System.out.println(myHashMap);
+
+        //Remove a pair;
+        System.out.println(separator);
+        myHashMap.remove(3);
+        System.out.println(myHashMap);
+
+        //Get the size of the map;
+        System.out.println(separator);
+        System.out.println(myHashMap.size());
+
+        //Clear the map
+        System.out.println(separator);
+        myHashMap.clear();
+        System.out.println(myHashMap.isEmpty());
     }
 }
