@@ -309,5 +309,21 @@ public class Main {
         System.out.println(separator);
         myHashMap.clear();
         System.out.println(myHashMap.isEmpty());
+
+
+        //6. Implement Iterable interface in your own class and try to use it as the data source
+        //inside a foreach loop definition
+        ArrayList<String> itStr = new ArrayList<>();
+        itStr.add("one");
+        itStr.add("two");
+        itStr.add("three");
+        itStr.add("four");
+        itStr.add("five");
+
+        OwnIterableList ownItList = new OwnIterableList(itStr);
+        for (Iterator<String> i = ownItList.iterator(); i.hasNext() ;) {
+            System.out.println(i.next());
+        }
+
     }
 }
