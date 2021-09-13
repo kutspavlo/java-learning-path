@@ -41,8 +41,9 @@ public class Student extends Person implements Fireable {
 
     public void fire(){
         System.out.println(String.format("%s %s has been fired.", this.getFirstName(), this.getLastName()));
-        for (Student s : group.getStudents()) {
-            if (s.getId() == this.getId()) {
+        for (Object s :  group.getStudents()) {
+            Student k = (Student) s;
+            if (k.getId() == this.getId()) {
                 this.group.removeStudent(Student.this);
             }
         }

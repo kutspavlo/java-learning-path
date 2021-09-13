@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Faculty extends StructuralUnit {
     private Date dateOfCreation;
-    private List<Department> departments = new ArrayList<>();
+    private List departments = new ArrayList();
     private Employee dean;
 
     public Faculty(String title, Date dateOfCreation, Employee dean) {
@@ -36,7 +36,7 @@ public class Faculty extends StructuralUnit {
         this.dean = dean;
     }
 
-    public List<Department> getDepartments() {
+    public List getDepartments() {
         return departments;
     }
 
@@ -50,16 +50,18 @@ public class Faculty extends StructuralUnit {
     
     public int getStudentsNumber() {
         int totalStudents = 0;
-        for (Department d: departments) {
-            totalStudents += d.getStudentsNumber();
+        for (Object d: departments) {
+            Department k = (Department) d;
+            totalStudents += k.getStudentsNumber();
         }
         return totalStudents;
     }
 
     public int getEmployeesNumber() {
         int totalEmpl = 0;
-        for (Department d: departments) {
-            totalEmpl += d.getEmployees().size();
+        for (Object d: departments) {
+            Department j = (Department) d;
+            totalEmpl += j.getEmployees().size();
 
         }
         return totalEmpl;

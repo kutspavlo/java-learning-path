@@ -30,7 +30,7 @@ public class Main {
         System.out.println(myGroup.getDateOfCreation());
 
         myGroup.addStudent(me);
-        System.out.println(myGroup.getStudents().get(0).getFirstName());
+        System.out.println(myGroup.getStudents().get(0));
 
         myGroup.removeStudent(me);
         System.out.println(myGroup.getStudents().size());

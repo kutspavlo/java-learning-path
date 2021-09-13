@@ -3,8 +3,8 @@ package Java_Advanced_Practice1_model;
 import java.util.*;
 
 public class Department extends StructuralUnit {
-    private Set<Specialty> specialties = new HashSet<>();
-    private List<Employee> employees = new ArrayList<>();
+    private Set specialties = new HashSet();
+    private List employees = new ArrayList();
     private Employee head;
     private Faculty faculty;
 
@@ -30,7 +30,7 @@ public class Department extends StructuralUnit {
         this.faculty = faculty;
     }
 
-    public Set<Specialty> getSpecialties() {
+    public Set getSpecialties() {
         return specialties;
     }
 
@@ -42,7 +42,7 @@ public class Department extends StructuralUnit {
         specialties.remove(specialty);
     }
 
-    public List<Employee> getEmployees() {
+    public List getEmployees() {
         return employees;
     }
 
@@ -56,8 +56,9 @@ public class Department extends StructuralUnit {
 
     public int getStudentsNumber() {
         int studentsNum = 0;
-        for (Specialty s: specialties) {
-            studentsNum += s.getStudentsNumber();
+        for (Object s: specialties) {
+            Specialty k = (Specialty) s;
+            studentsNum += k.getStudentsNumber();
         }
         return studentsNum;
     }

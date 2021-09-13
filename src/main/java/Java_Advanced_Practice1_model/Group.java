@@ -5,7 +5,7 @@ import java.util.*;
 public class Group extends StructuralUnit {
 
     private Date dateOfCreation;
-    private List<Student> students = new ArrayList<>();
+    private List students = new ArrayList();
     private Specialty specialty;
     private Employee curator;
 
@@ -46,7 +46,7 @@ public class Group extends StructuralUnit {
         this.curator = curator;
     }
 
-    public List<Student> getStudents() {
+    public List getStudents() {
         return students;
     }
 

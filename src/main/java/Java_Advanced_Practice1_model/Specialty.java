@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Specialty extends StructuralUnit {
-    private Set<Group> groups = new HashSet<>();
+    private Set groups = new HashSet();
     private Department department;
 
     public Specialty(String title, Department department) {
@@ -21,7 +21,7 @@ public class Specialty extends StructuralUnit {
         this.department = department;
     }
 
-    public Set<Group> getGroups() {
+    public Set getGroups() {
         return groups;
     }
 
@@ -35,8 +35,9 @@ public class Specialty extends StructuralUnit {
 
     public int getStudentsNumber() {
         int totalStudents = 0;
-        for (Group g: groups) {
-            totalStudents += g.getSize();
+        for (Object g: groups) {
+            Group k = (Group) g;
+            totalStudents += k.getSize();
         }
         return totalStudents;
     }
