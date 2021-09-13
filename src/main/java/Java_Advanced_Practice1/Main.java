@@ -313,6 +313,7 @@ public class Main {
 
         //6. Implement Iterable interface in your own class and try to use it as the data source
         //inside a foreach loop definition
+        System.out.println(separator);
         ArrayList<String> itStr = new ArrayList<>();
         itStr.add("one");
         itStr.add("two");
@@ -325,5 +326,82 @@ public class Main {
             System.out.println(i.next());
         }
 
+        //7. Use the Collections class for executing following operations:
+        //Add new elements to a collection;
+        System.out.println(separator);
+        ArrayList<Integer> collArrInt = new ArrayList<>();
+        Collections.addAll(collArrInt, 17, 26, 11, 78, 63, 111, 9);
+        System.out.println(collArrInt.get(0));
+
+        //Sort a list and then carry out binary search;
+        System.out.println(separator);
+        System.out.println(collArrInt);
+        Collections.sort(collArrInt);
+        System.out.println(collArrInt);
+
+        System.out.println(Collections.binarySearch(collArrInt, 78));
+
+        //Copy a collection;
+        System.out.println(separator);
+        ArrayList<Integer> forCopy = new ArrayList<>();
+        Collections.addAll(forCopy, 1, 2, 3, 4, 5, 6, 7);
+        Collections.copy(forCopy, collArrInt);
+        System.out.println(forCopy);
+
+        //Check if two collections have at least one common element;
+        System.out.println(separator);
+        System.out.println(Collections.disjoint(collArrInt, forCopy));
+
+        //Fill a collection by a single element;
+        System.out.println(separator);
+        Collections.fill(forCopy, 7);
+        System.out.println(forCopy);
+
+        //Find out the number of elements in a collection equal to some object;
+        System.out.println(separator);
+        Collections.addAll(collArrInt, 111,111,111);
+        System.out.println(collArrInt);
+        System.out.println(Collections.frequency(collArrInt, 111));
+
+        //Find the max/min element in a collection;
+        System.out.println(separator);
+        System.out.println(Collections.max(collArrInt));
+        System.out.println(Collections.min(collArrInt));
+
+        //Replace all occurrences of one specified value in a list with another;
+        System.out.println(separator);
+        System.out.println(collArrInt);
+        Collections.replaceAll(collArrInt, 111, 222);
+        System.out.println(collArrInt);
+
+        //Reverse a list;
+        System.out.println(separator);
+        System.out.println(collArrInt);
+        Collections.reverse(collArrInt);
+        System.out.println(collArrInt);
+
+        //Randomly mix a list elements;
+        System.out.println(separator);
+        System.out.println(collArrInt);
+        Collections.shuffle(collArrInt);
+        System.out.println(collArrInt);
+
+        //Create a collection with a single element;
+        System.out.println(separator);
+        Set<String> singletonSet = Collections.singleton("first");
+        System.out.println(singletonSet);
+
+        //Swap two elements in a list;
+        System.out.println(separator);
+        System.out.println(collArrInt);
+        Collections.swap(collArrInt, 2, 3);
+        System.out.println(collArrInt);
+
+        //Create an immutable collection and try to modify it
+        List<Integer> intArrListN = new ArrayList<>();
+        intArrListN.add(2);
+        intArrListN.add(5);
+        List<Integer> immutablelist = Collections.unmodifiableList(intArrListN);
+        immutablelist.add(5); //exception thrown
     }
 }
