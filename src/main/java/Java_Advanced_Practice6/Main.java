@@ -2,6 +2,9 @@ package Java_Advanced_Practice6;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,6 +41,19 @@ public class Main {
 
         Arrays.sort(persons, compareByAge);
         Arrays.asList(persons).forEach(Person::printInfo);
+
+        //3. Implement each of main Java Standard Library functional interfaces (supplier,
+        //predicate etc.) using lambda expressions.
+        System.out.println("**************");
+        Supplier<Integer> supp = ()->new Random().nextInt();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(supp.get());
+        }
+        System.out.println("**************");
+        Predicate<Integer> pred = (i)->i>=18;
+        for (int i = 15; i < 22; i++) {
+            System.out.printf("%d years old is adult: %b%n", i, pred.test(i));
+        }
     }
 
     //2.Create a Person class with name and age fields;
