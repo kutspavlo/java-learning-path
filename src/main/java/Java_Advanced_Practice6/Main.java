@@ -54,6 +54,20 @@ public class Main {
         for (int i = 15; i < 22; i++) {
             System.out.printf("%d years old is adult: %b%n", i, pred.test(i));
         }
+
+        //4. Create your own functional interface and add several its implementations using
+        //both lambda expressions and inner anonymous classes
+        Randomizer rand = ()-> (int) (Math.random() * 1000);
+        System.out.println("**************");
+        System.out.println(rand.random());
+        System.out.println("**************");
+        System.out.println(rand.random(50));
+
+        System.out.println("**************");
+        RanmdomInclidingNegative random2 = new RanmdomInclidingNegative();
+        System.out.println(random2.random());
+
+
     }
 
     //2.Create a Person class with name and age fields;
@@ -78,5 +92,15 @@ public class Main {
             return age;
         }
         
+    }
+
+    static class RanmdomInclidingNegative implements Randomizer {
+
+        @Override
+        public int random() {
+            boolean isPositive = Randomizer.randomBoolean();
+            if (isPositive) return (int) (Math.random()*100*(-1));
+            else return (int) (Math.random()*100);
+        }
     }
 }
