@@ -1,9 +1,6 @@
 package Java_Advanced_Practice7;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -19,7 +16,7 @@ public class Main {
         Book[] books = new Book[5];
         books[0] = new Book("The Moon", 223);
         books[1] = new Book("The Sun", 214);
-        books[2] = new Book("The Earth", 134);
+        books[2] = new Book("The Earth", 222);
         books[3] = new Book("The Star", 149);
         books[4] = new Book("The Ocean", 423);
 
@@ -100,7 +97,13 @@ public class Main {
 
        //6. Use the Optional type for determining the title
        //of the biggest book of some author
+        Optional<String> biggestBook = Arrays.stream(authors).
+                filter(a-> a.getName().equals("Silvia")).
+                map(Author::getBooks).
+                flatMap(Collection::stream).
+                max(Comparator.comparing(Book::getNumberOfPages)).map(Book::getTitle);
 
-
+        System.out.println("******************4");
+        System.out.println(biggestBook);
     }
 }
